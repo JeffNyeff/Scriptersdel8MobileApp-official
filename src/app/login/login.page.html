@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+
+    </ion-buttons>
+    <ion-title>
+      The Book Market Login
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label position="floating">Enter Username</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Enter Password</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+  <ion-button href="home" style="align-items: center">Login</ion-button>
+
+  <ion-button href="register" style="align-items: center">Sign-Up</ion-button>
+
+  <ion-button shape="round" fill="outline" (click)="loginAction();" >Login with Google</ion-button>
+
+  
+</ion-content>

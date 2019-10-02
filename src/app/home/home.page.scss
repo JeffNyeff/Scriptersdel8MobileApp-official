@@ -2,3 +2,22 @@
   max-height: 35vh;
   overflow: hidden;
 }
+.home-page {
+  .toolbar-background{
+    background: #fff;
+    border-color: transparent;
+  }
+  .slide-zoom{
+    height: 100%;
+  }
+ 
+  .slide-title{
+    margin-top: 20px;
+  }
+ 
+  .slide-image{
+    max-height: 50%;
+    max-width: 60%;
+    margin: 18px 0;
+  }
+ }
