@@ -9,8 +9,13 @@ import { GooglePlus } from '@ionic-native/google-plus/ngx';
 })
 export class LoginPage implements OnInit {
 
-  constructor(public navCtrl:NavController,private google: GooglePlus) { }
+  constructor(public navCtrl:NavController,private googlePlus: GooglePlus) { }
 
+  GoogleLogin(){
+    this.googlePlus.login({})
+  .then(res => console.log(res))
+  .catch(err => console.error(err));
+  }
   ngOnInit() {
   }
 
