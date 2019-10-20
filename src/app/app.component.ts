@@ -22,9 +22,9 @@ export class AppComponent {
       icon: 'book'
     },
     {
-      title: 'Accessories',
-      url: '/accessories',
-      icon: 'laptop'
+      title: 'Cart',
+      url: '/cart',
+      icon: 'cart'
     },
    
     {

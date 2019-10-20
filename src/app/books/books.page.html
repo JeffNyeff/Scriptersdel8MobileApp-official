@@ -4,22 +4,40 @@
     <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Books
+      View Book(s)
     </ion-title>
+    <ion-buttons slot="end">
+        <ion-button (click)="openCart()">
+          <ion-badge *ngIf="cart.length>0">{{cart.lenth}}</ion-badge>
+          <ion-icon name="cart"slot="icon-only">
+          </ion-icon>
+        </ion-button>
+      </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let b of Books">
-      <ion-thumbnail slot="start">
-       
-        <img src="data:image/jpeg;base64,{{b.Image}}"/>
-      </ion-thumbnail>
-      <ion-label>{{b.Name}} 
-        <br>{{b.Description}}
-      </ion-label>
-      <p>Price R{{b.SalePrice}}</p>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>
+              {{b.Name}}- R{{b.SalePrice}}
+          </ion-card-title>
+          <ion-card-subtitle>
+              {{b.Description}}
+          </ion-card-subtitle>
+        <ion-card-content>
+            <ion-thumbnail slot="start">
+                <img src="data:image/jpeg;base64,{{b.Image}}"/>
+              </ion-thumbnail>
+              <ion-button expand="full" click="addToCart(product)">
+                Request
+              </ion-button>
+        </ion-card-content> 
+      
+    </ion-card-header>
+    </ion-card>
     </ion-item>
   </ion-list>
   

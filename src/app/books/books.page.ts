@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { BookService } from '../Providers/book.service';
+import { Router } from '@angular/router';
+import { CartService } from '../Providers/cart.service';
 
 @Component({
   selector: 'app-books',
@@ -9,8 +11,12 @@ import { BookService } from '../Providers/book.service';
 })
 
 export class BooksPage  {
+  cart=[];
+
+  items=[];
   Books:any
-  constructor(public navCtrl:NavController,public bkService:BookService) { 
+  
+  constructor(public navCtrl:NavController,public bkService:BookService,private router:Router,private cartService:CartService) { 
   this.getBooks();
   }
 
@@ -21,6 +27,14 @@ export class BooksPage  {
      console.log(this.Books);
     });
   }
+ngOnInit(){
+  this.cart =this.cartService.getCart();
+}
 
- 
+addToCart(product){
+  this.cartService.addProduct(product);
+}
+ openCart(){
+   this.router.navigate(['cart'])
+ }
 }

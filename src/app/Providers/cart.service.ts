@@ -1,21 +1,34 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
 
-  private data =[
-    {
-     category: 'Books',
-     expanded: true,
-     products:[
-       {id:0,name:'Information systems', price: '350'},
-       {id:1,name:'Business Management', price: '450'},
-       {id:2,name:'Introduction to accounting', price: '500'},
-       {id:3,name:'Discrete Mathematics', price: '600'},
-       {id:4,name:'Linear Algebra', price: '400'}
-     ]
-  }]
-  constructor() { }
+  
+  apiurl ='https://localhost:44384/api/';
+
+  private cart=[];
+  constructor(public httpClient: HttpClient) {
+    console.log("Test");
+   }
+
+  getBooks(){
+    return new Promise(resolve=>{
+      this.httpClient.get(this.apiurl+'/Books/Get').subscribe(data =>{
+        resolve(data);
+      }, err =>{
+        console.log(err);
+      });
+    });
+  }
+
+  getCart(){
+    return this.cart;
+  }
+
+  addProduct(product){
+    this.cart.push(product)
+  }
 }
