@@ -10,14 +10,17 @@
 </ion-header>
 
 <ion-content>
-  
-    <ion-list>
-      <ion-item *ngFor="let b of Books ">
-        <h2>{{b.Name}}</h2>
-        <h2>{{b.SalePrice}}</h2>
-        <h2>{{b.Description}}</h2>
-        <h2>{{b.Image}}</h2>
-      </ion-item>
-    </ion-list>
+  <ion-list>
+    <ion-item *ngFor="let b of Books">
+      <ion-thumbnail slot="start">
+       
+        <img src="data:image/jpeg;base64,{{b.Image}}"/>
+      </ion-thumbnail>
+      <ion-label>{{b.Name}} 
+        <br>{{b.Description}}
+      </ion-label>
+      <p>Price R{{b.SalePrice}}</p>
+    </ion-item>
+  </ion-list>
   
 </ion-content>

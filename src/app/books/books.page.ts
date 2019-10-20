@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { BookService } from '../Providers/book.service';
 
@@ -7,20 +7,20 @@ import { BookService } from '../Providers/book.service';
   templateUrl: './books.page.html',
   styleUrls: ['./books.page.scss'],
 })
-export class BooksPage implements OnInit {
+
+export class BooksPage  {
   Books:any
-  constructor(navCtrl:NavController,public bkService:BookService) { 
+  constructor(public navCtrl:NavController,public bkService:BookService) { 
   this.getBooks();
   }
+
   getBooks(){
     this.bkService.getBooks()
     .then(data =>{
      this.Books=data;
-     console.log(this.Books)
+     console.log(this.Books);
     });
   }
 
-  ngOnInit() {
-  }
-
+ 
 }
